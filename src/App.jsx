@@ -1,13 +1,6 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
-import {Navbar, Tech, StarsCanvas } from "./components";
-  // Lazy load components
-const About = lazy(() => import('./components/About'));
-const Contact = lazy(() => import('./components/Contact'));
-const Experience = lazy(() => import('./components/Experience'));
-const Feedbacks = lazy(() => import('./components/Feedbacks'));
-const Hero = lazy(() => import('./components/Hero'));
-const Works = lazy(() => import('./components/Works'));
+import {Navbar, Tech, StarsCanvas, About, Contact, Experience, Feedbacks, Hero, Works } from "./components";
 
 const App = () => {
   return (
