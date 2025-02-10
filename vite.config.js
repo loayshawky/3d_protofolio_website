@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ command }) => {
   const plugins = [react()];
 
-  // تحميل visualizer فقط أثناء التطوير
   if (command === 'serve') {
     const visualizer = require('rollup-plugin-visualizer');
     plugins.push(visualizer({ open: false }));
@@ -17,7 +16,7 @@ export default defineConfig(({ command }) => {
     },
     build: {
       outDir: 'dist',
-      minify: 'terser',
+      minify: true, // استخدم esbuild بدلاً من terser
       treeShaking: true,
       assetsInlineLimit: 4096,
       chunkSizeWarningLimit: 500,
