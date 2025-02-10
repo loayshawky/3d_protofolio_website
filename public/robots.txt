@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loayshawky.github.io/3d_protofolio_website/sitemap.xml
