@@ -1,19 +1,23 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import visualizer from 'rollup-plugin-visualizer';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  // base: '/3d_protofolio_website', // Add this line
-
-  define: {
-    'process.env': process.env, // Example: Make environment variables available in the app
-  },
+  plugins: [
+    react(),
+    visualizer({ open: false }), // أداة لتحليل حجم الملفات
+  ],
   server: {
-    port: 3000, // Set custom port for development server
+    port: 3000, // تحديد المنفذ
   },
   build: {
-    outDir: 'dist', // Define the output directory for production builds
-    minify: true, // Enable minification for production
+    outDir: 'dist', // تحديد مجلد الإخراج
+    minify: 'terser', // تحسين تقليل الحجم
+    treeShaking: true, // حذف الأكواد غير المستخدمة
+    assetsInlineLimit: 4096, // تحسين تحميل الصور والملفات الصغيرة
+    chunkSizeWarningLimit: 500, // تقليل التحذيرات عند حجم الملفات الكبير
+  },
+  define: {
+    'process.env.API_URL': JSON.stringify(process.env.API_URL), // تضمين المتغيرات المطلوبة فقط
   },
 });
