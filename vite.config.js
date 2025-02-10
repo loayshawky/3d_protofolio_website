@@ -5,7 +5,7 @@ import visualizer from 'rollup-plugin-visualizer';
 export default defineConfig({
   plugins: [
     react(),
-    visualizer({ open: false }), // أداة لتحليل حجم الملفات
+    visualizer({ open: false }) // أداة لتحليل حجم الملفات
   ],
   server: {
     port: 3000, // تحديد المنفذ
